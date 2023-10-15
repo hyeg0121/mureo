@@ -17,14 +17,20 @@
     --mamrgin-top: 6vh;
 }
 
+@keyframes pan {
+    100% {
+      background-position: 20% 80%;
+    }
+}
+
 body {
     background-image: url('../image/background.jpg');
     background-size: contain;
     overflow: hidden;
     height: 100%;
     color: var(--login-color);
+    animation: pan 10s infinite alternate linear;
 }
-/* 배경 움직이는 애니메이션 주기 */
 
 #main {
     width: 100%;
