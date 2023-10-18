@@ -1,6 +1,19 @@
 @font-face {
     font-family: 'Pretendard-Regular';
+    src: url('https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Bold.woff') format('woff');
+    font-weight: 700;
+}
+
+@font-face {
+    font-family: 'Pretendard-Regular';
     src: url('https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff') format('woff');
+    font-weight: 400;
+}
+
+@font-face {
+    font-family: 'Pretendard-Regular';
+    src: url('https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Light.woff') format('woff');
+    font-weight: 300;
 }
 
 :root {
@@ -27,6 +40,7 @@
     display: flex;
     flex-direction: column;
     box-shadow: 10px 0px 30px 0px rgba(0, 0, 0, 0.10);
+    background-color: white;
 }
 
 .profile-container {
@@ -38,18 +52,14 @@
 }
 
 .profile-img-wrap {
-    width: 15vw;
-    height: 15vw;
-    max-width: 240px;
-    max-height: 240px;
+    width: 10vw;
+    height: 10vw;
 }
 
 .profile-img-wrap > .profile-img {
     object-fit: cover;
-    width: 15vw;
-    height: 15vw;
-    max-width: 240px;
-    max-height: 240px;
+    width: 10vw;
+    height: 10vw;
     border-radius: 50%;
 }
 
@@ -59,6 +69,18 @@
     column-gap: 6px;
     align-items: center;
     font-size: 1.4rem;
+}
+
+.name-lable {
+    color: var(--black);
+    font-weight: 400;
+    font-size: 1rem;
+}
+
+.id-label {
+    color: var(--black);
+    font-weight: 300;
+    font-size: 0.8rem;
 }
 
 .follow-container {
@@ -74,12 +96,30 @@
     align-items: center;
 }
 
+.following-label,
+.follower-label {
+    color: var(--black);
+    text-align: center;
+    font-size: 0.7rem;
+    font-style: normal;
+    font-weight: 400;
+}
+
+.following-value,
+.follower-value {
+    color: var(--black);
+    text-align: center;
+    font-size: 0.7rem;
+    font-style: normal;
+    font-weight: 400; 
+}
+
 .nav-list {
     margin: 6vh 0 0 2vw;
     list-style: none;
     display: flex;
     flex-direction: column;
-    gap: 8vh;
+    gap: 7vh;
 }
 
 .nav-item {
@@ -92,11 +132,11 @@
 }
 
 .nav-item > iconify-icon {
-    font-size: 1.5rem;
+    font-size: 1.1rem;
 }
 
 .nav-item-lable {
-    font-size: 1.3rem;
+    font-size: 1rem;
 }
 
 .nav-item:hover {
