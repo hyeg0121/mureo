@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>무러</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/nav.css">
+    <link rel="stylesheet" href="./css/interest.css">
+</head>
+<!-- TODO: 숨기기 가능하게 -->
+<!-- TODO: 마우스 가져가면 다시 보이게 하기 -->
+<body class="flex-container">
+    <nav class="desktop-nav flex-container">
+        <div class="profile-container">
+            <div class="profile-img-wrap">
+                <img src="../image/profile1.jpeg" alt="" class="profile-img">
+            </div>
+            <div class="name-and-id">
+                <div class="name-lable">황혜경</div>
+                <div class="id-label">hulrud</div>
+            </div>
+            <div class="follow-container flex-container">
+                <div class="following-container">
+                    <div class="following-label">팔로잉</div>
+                    <div class="following-value">20</div>
+                </div>
+                <div class="follower-container">
+                    <div class="follower-label">팔로워</div>
+                    <div class="follower-value">20 </div>
+                </div>
+            </div>
+        </div>
+        <ul class="nav-list">
+            <li class="nav-item home" onclick="window.open('/main', '_top')">
+                <iconify-icon icon="clarity:home-line"></iconify-icon>
+                <div class="nav-item-lable">홈</div>
+            </li>
+            <li class="nav-item interest" onclick="window.open('/interest', '_top')">
+                <iconify-icon icon="clarity:fish-line"></iconify-icon>
+                <div class="nav-item-lable">관심사</div>
+            </li>
+            <li class="nav-item write" onclick="window.open('/write', '_top')">
+                <iconify-icon icon="solar:pen-linear"></iconify-icon>
+                <div class="nav-item-lable">글쓰기</div>
+            </li>
+
+            <li class="nav-item friends" onclick="window.open('/friends', '_top')">
+                <iconify-icon icon="solar:user-outline"></iconify-icon>
+                <div class="nav-item-lable">친구</div>
+            </li>
+        </ul>
+    </nav>
+    <main id="main">
+        <div class="interest-container main-section">
+            <div class="section-label">황혜경님의 관심사</div>
+            <div class="interest-list">
+                <div class="interest-item">
+                    <div class="titles">
+                        <div class="color"></div>
+                        <div class="title-label">두산베어스 🐻</div>
+                    </div>
+                    <div class="post-count">작성한 글 50개</div>
+                    <div class="days-since">좋아한 지 102일</div>
+                    <div class="terms">2000-01-01 ~ 2000-01-01</div>
+                </div>
+                <div class="interest-item">
+                    <div class="titles">
+                        <div class="color"></div>
+                        <div class="title-label">두산베어스 🐻</div>
+                    </div>
+                    <div class="post-count">작성한 글 50개</div>
+                    <div class="days-since">좋아한 지 102일</div>
+                    <div class="terms">2000-01-01 ~ 2000-01-01</div>
+                </div>
+            </div>
+        </div>
+            <div class="interest-post-container">
+            <div class="interest-info-label">
+                <div class="interest-date">2023년 6월 23일 ~ </div>
+                <div class="interest-title">두산베어스 🐻</div>
+                <div class="interest-des">서영이 따라 직관 갔는데 빠져버린 야구</div>
+            </div>
+            <div class="posts">
+                <div class="add-post-container" onclick="window.open('/write', '_top')">
+                    <iconify-icon icon="ion:add"></iconify-icon>
+                    <span>새 글 추가하기</span>
+                </div>
+                <div class="post-item">
+                    <div class="post-title">오늘도 승요</div>
+                    <div class="post-content">오랜만에 응원석 갔는데 너무 좋다ㅠㅠㅠㅠ 잠실 야구장 김치말이국수 겁나 맛있음 야구장은 그냥 노래 부를 수 있는 에어컨 없는 식당임... 근데 오렌지석보다 네이비석이 더 응원가 분위기 잘 느껴지는 듯;;; 응원단장이 더 잘 보이는 거 빼고는 잘 모르겠다 </div>
+                    <div class="post-date">2023-08-21</div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
+</body>
+</html>
