@@ -58,7 +58,7 @@
 }
 
 .section-label {
-    font-size: 1.5rem;
+    font-size: 1rem;
 }
 
 .interest-list {
@@ -97,10 +97,10 @@
     background-color: var(--dusan);
 }
 
-.interest-item > .titles > .title-label {
+.interest-item  .titles  .title-label {
     color: var(--black, #131313);
     font-family: var(--main-font);
-    font-size: 24px;
+    font-size: 1.2rem;
     font-style: normal;
     font-weight: 500;
     line-height: normal;
@@ -156,15 +156,23 @@
 
 .post-title {
     color: var(--black, #131313);
-    font-size: 1.2rem;
+    font-size: 1rem;
     font-style: normal;
     font-weight: 700;
     line-height: normal;
 }
 
+.post-content {
+    color: var(--black, #131313);
+    font-size: 0.8rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
 .post-date {
     color: var(--gray-500, #9E9E9E);
-    font-size: 0.8rem;
+    font-size: 0.6rem;
     font-style: normal;
     font-weight: 300;
     line-height: normal;
@@ -198,7 +206,7 @@
 
 .friend-name {
     color: var(--black);
-    font-size: 0.8rem;
+    font-size: 1rem;
     font-style: normal;
     font-weight: 500;
     line-height: normal;
@@ -208,6 +216,12 @@
     color: var(--black, #131313);
     font-size: 0.8rem;
     font-weight: 300;
+}
+
+.friend-interest {
+    color: var(--black, #131313);
+    font-size: 1rem;
+    font-weight: 500;
 }
 
 .friend-img {
