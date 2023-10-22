@@ -22,6 +22,8 @@
     box-sizing: border-box;
     text-decoration: none;
     font-family: var(--main-font);
+    outline: none;
+    border: none;
 }
 
 html,
@@ -29,4 +31,9 @@ body {
     width: 100%;
     height: 100%;
     overflow-y: hidden;
+}
+
+a {
+    color: var(--black);
+    text-decoration: none;
 }
