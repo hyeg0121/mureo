@@ -1,0 +1,147 @@
+#main {
+    position: absolute;
+    top: 6vh;
+    left: 24vw;
+    width: 70%;
+    height: calc(100% - 6vh * 2);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    gap: 7vh;
+    overflow: hidden;
+}
+
+.main-label {
+    font-weight: 500;
+    font-size: 1.2rem;
+}
+
+.page-container {
+    justify-self: flex-end;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 7vw;
+    color: var(--gray700);  
+}
+
+.page-numbers {
+    font-size: 1.2rem;
+    cursor: pointer;
+}
+
+.prev-icon,
+.next-icon {
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
+.interests {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.add-container {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    padding: 30px;
+    border-radius: 5px;
+    border: 1px solid var(--gray-500, #9E9E9E);
+    background: var(--white, #FFF);
+    cursor: pointer;
+}
+
+.interest-container {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    padding: 30px;
+    border-radius: 5px;
+    border: 1px solid var(--gray-500, #9E9E9E);
+    background: var(--white, #FFF);
+}
+
+.interest-head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.interest-title {
+    display: flex;
+    gap: 30px;
+    cursor: pointer;
+    width: fit-content;
+}
+
+.color {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background-color: var(--dusan);
+}
+
+.interest-info {
+    display: none;
+    color: var(--gray500);  
+}
+
+.interest-settings {
+    display: flex;
+    align-items: flex-start ;
+    gap: 20px;
+}
+
+.interest-settings > button {
+    padding: 3px 10px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 1rem;
+}
+
+.info-button {
+    background-color: #FFF;
+    font-size: 1.2rem;
+}
+
+.view {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.3);
+}
+
+.modal-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 20px;
+    background-color: #fff;
+    margin: 15% auto;
+    padding: 20px;
+    width: 30%;
+    height: 30%;
+}
+
+.close {    
+    margin: 10% 0 0 0;
+    padding: 10px 20px;
+    background-color: var(--primary );
+    color: var(--white);
+    border-radius: 5px;
+    cursor: pointer;
+}
