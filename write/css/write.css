@@ -1,0 +1,80 @@
+#main {
+    position: absolute;
+    top: 6vh;
+    left: calc(300px + 4vw);
+    width: 80%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    gap: 7vh;
+    overflow: hidden;
+}
+
+.interest-info-label {
+    display: flex;
+    flex-direction: column;
+    width: fit-content;
+    height: fit-content;
+}
+
+.interest-title {
+    color: var(--black, #131313);
+    font-size: 1.4rem;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+}
+
+.interest-des {
+    color: var(--black, #131313);
+    font-size: 0.8rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+.form-container {
+    display: flex;
+    flex-direction: column;
+    gap: 35px;
+    width: 70vw;
+    max-width: 958px;
+}
+
+.field-container {
+    display: flex;
+    gap: 38px;
+}
+
+.field-label {
+    width: 10%;
+    max-width: 120px;
+}
+
+.field-input {
+    width: calc(90% - 38px);
+    height: 40px;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid var(--gray-500, #9E9E9E);
+    background: var(--white, #FFF);
+}
+
+#content {
+    height: 300px;
+    resize: none;
+}
+
+#submit-button {
+    width: 20%;
+    height: 40px;
+    align-self: flex-end;
+    color: var(--white, #fff);
+    border-radius: 5px;
+    background: var(--primary, #25A8E0);
+    cursor: pointer;
+}
+
+
+
