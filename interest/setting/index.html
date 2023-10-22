@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>무러</title>
+    <link rel="stylesheet" href="../../css/style.css">
+    <link rel="stylesheet" href="../../css/nav.css">
+    <link rel="stylesheet" href="./css/setting.css">
+</head>
+<body class="flex-container">
+    <nav class="desktop-nav flex-container">
+        <div class="profile-container">
+            <div class="profile-img-wrap">
+                <img src="../../image/profile1.jpeg" alt="" class="profile-img">
+            </div>
+            <div class="name-and-id">
+                <div class="name-lable">황혜경</div>
+                <div class="id-label">hulrud</div>
+            </div>
+            <div class="follow-container flex-container">
+                <div class="following-container">
+                    <div class="following-label">팔로잉</div>
+                    <div class="following-value">20</div>
+                </div>
+                <div class="follower-container">
+                    <div class="follower-label">팔로워</div>
+                    <div class="follower-value">20 </div>
+                </div>
+            </div>
+        </div>
+        <ul class="nav-list">
+            <li class="nav-item home" onclick="window.open('/main', '_top')">
+                <iconify-icon icon="clarity:home-line"></iconify-icon>
+                <div class="nav-item-lable">홈</div>
+            </li>
+            <li class="nav-item interest" onclick="window.open('/interest', '_top')">
+                <iconify-icon icon="clarity:fish-line"></iconify-icon>
+                <div class="nav-item-lable">관심사</div>
+            </li>
+            <li class="nav-item write" onclick="window.open('/write', '_top')">
+                <iconify-icon icon="solar:pen-linear"></iconify-icon>
+                <div class="nav-item-lable">글쓰기</div>
+            </li>
+
+            <li class="nav-item friends" onclick="window.open('/friends', '_top')">
+                <iconify-icon icon="solar:user-outline"></iconify-icon>
+                <div class="nav-item-lable">친구</div>
+            </li>
+        </ul>
+    </nav>
+    <main id="main">
+        <div class="main-label">관심사 설정</div>
+        <div class="interests">
+            <div class="add-container" onclick="window.open('/interest/post', '_top')">
+                <iconify-icon icon="ion:add"></iconify-icon>
+                <span>새 관심사 추가하기</span>
+            </div>
+            <div class="interest-container">
+                <div class="interest-head">
+                    <div class="interest-title">
+                        <div class="color"></div>
+                        <div class="title-label">두산베어스 🐻</div>
+                    </div>
+                    <div class="interest-settings">
+                        <button class="done-button">그만 좋아하기</button>
+                        <button class="edit-button">수정</button>
+                        <button class="info-button"><iconify-icon icon="ph:info"></iconify-icon></button>
+                    </div>
+                </div>
+                <div class="interest-info">
+                    <div class="post-count">작성한 글 50개</div>
+                    <div class="days-since">좋아한 지 102일</div>
+                    <div class="terms">2000-01-01 ~ 2000-01-01</div>
+                </div>
+            </div>
+        </div>
+        <div class="page-container">
+            <div class="prev-icon"><iconify-icon icon="mingcute:left-line"></iconify-icon></div>
+            <div class="page-numbers">
+                <div class="page-number">1</div>
+            </div>
+            <div class="next-icon"><iconify-icon icon="mingcute:right-line"></iconify-icon></div>
+        </div>
+        <div id="done-interest-modal" class="modal">
+            <div class="modal-content">
+                <h2>관심사를 그만 좋아하시겠습니까?</h2>
+                <p>2023년 10월 22일 두산 베어스 🐻 관심사를 그만 좋아합니다.</p>
+                <button id="close-modal-button" class="close">그만 좋아하기</button>
+            </div>
+        </div>
+    </main>
+    <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
+    <script src="./js/setting.js"></script>
+</body>
+</html>
