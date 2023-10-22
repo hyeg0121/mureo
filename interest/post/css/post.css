@@ -1,0 +1,74 @@
+#main {
+    position: absolute;
+    top: 6vh;
+    left: 24vw;
+    width: 70%;
+    height: calc(100% - 6vh * 2);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    gap: 7vh;
+    overflow: hidden;
+}
+
+.main-label {
+    font-weight: 500;
+    font-size: 1.2rem;
+}
+
+.form-container {
+    display: flex;
+    flex-direction: column;
+    gap: 35px;
+    width: 70vw;
+    max-width: 958px;
+}
+
+.field-container {
+    display: flex;
+    gap: 38px;
+}
+
+.field-label {
+    width: 10%;
+    max-width: 120px;
+    color: var(--gray500);
+    font-size: 0.9rem;
+}
+
+.field-input {
+    width: calc(90% - 38px);
+    height: 40px;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid var(--gray-500, #9E9E9E);
+    background: var(--white, #FFF);
+}
+
+input[type='date'] {
+    cursor: pointer;
+}
+
+#color {
+    cursor: pointer;
+}
+
+#color::-webkit-color-swatch {
+    border-radius: 5px;
+    border: none;
+}
+
+#reason {
+    height: 150px;
+    resize: none;
+}
+
+#submit-button {
+    width: 20%;
+    height: 40px;
+    align-self: flex-end;
+    color: var(--white, #fff);
+    border-radius: 5px;
+    background: var(--primary, #25A8E0);
+    cursor: pointer;
+}
