@@ -59,7 +59,7 @@ body {
 .slogans > h2 {
     font-size: 1.2rem;
     font-weight: 100;
-    letter-spacing: 1rem;
+    letter-spacing: 0.5rem;
 }
 
 .slogans > h1 {
@@ -69,14 +69,15 @@ body {
 }
 
 .forms {
-    width: 50%;
+    width: 100%;
+    padding: 0 10vw;
     display: flex;
     flex-direction: column;
     gap: 36px;
 }
 
 .input-container,
-.input-container > * {
+.input-container > * {  
     width: 100%;
     font-size: 1.2rem;
 }
@@ -118,4 +119,33 @@ body {
 .buttons > a {
     color: var(--login-color);
     text-decoration: underline;
+}
+
+@media screen and (max-width: 1024px) {
+    
+    body {
+        background: none;
+    }
+
+    .slogans > h2 {
+        font-size: 1rem;
+    }
+
+    .slogans > h1 {
+        font-size: 1.2rem;
+    }
+
+    .forms {
+        padding: 0 20vw;
+    }
+
+    .login-container {
+        width: 100%;
+    }
+
+    .login-button {
+        width: calc(100% - 20vw * 2);
+        font-size: 1rem;
+    }
+
 }
