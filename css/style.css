@@ -37,3 +37,7 @@ a {
     color: var(--black);
     text-decoration: none;
 }
+
+::-webkit-scrollbar {
+    display: none;
+  }
