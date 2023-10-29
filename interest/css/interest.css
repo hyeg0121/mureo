@@ -130,6 +130,8 @@ iconify-icon {
 .posts {
     display: flex;
     flex-flow: column wrap;
+    width: fit-content;
+    height: 60%;
     gap: 20px;
 }
 
@@ -196,4 +198,44 @@ iconify-icon {
     font-style: normal;
     font-weight: 300;
     line-height: normal;
+}
+
+
+
+@media screen and (max-width: 1024px) {
+
+    body {
+        border: none;
+    }
+
+    #main {
+        top: 80px;
+        height: max-content;
+        left: 20px;
+        width: calc(100% - 20px * 2);
+        padding: 0 0 100px 0;
+    }
+
+    .interest-post-container {
+        width: 100%;
+    }
+
+    .follow-container {
+        gap: 20px;
+    }
+
+    .posts {
+        height: 52vh;
+    }
+    
+    .interest-item {
+        width: 40vw;
+    }
+
+    .add-post-container,
+    .post-item {
+        width: 100%;
+    }
+
+
 }
