@@ -154,6 +154,7 @@
         width: 100%;
         overflow: scroll;
     }
+
     .desktop {
         display: none;
     }
@@ -190,9 +191,9 @@
         font-size: 0.8rem;
     }
 
-    /* .mobile {
+    .mobile {
         display: flex;
-    } */
+    }
 }
 
 
