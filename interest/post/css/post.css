@@ -71,4 +71,48 @@ input[type='date'] {
     border-radius: 5px;
     background: var(--primary, #25A8E0);
     cursor: pointer;
+    transition: 0.2s;
+}
+
+#submit-button:hover {
+    background-color: var(--primary-hover);
+}
+
+@media screen and (max-width: 1024px) {
+
+    body {
+        border: none;
+    }
+
+    #main {
+        top: 56px;
+        height: max-content;
+        left: 0;
+        width: calc(100% - 5vw * 2);
+        overflow-x: hidden;
+        margin: 0 5vw;
+    }
+
+    .form-container {
+        width: 100%;
+    }
+
+    .field-label {
+        width: 100%;
+    }
+
+
+    .field-container {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .field-input {
+        width: 100%;
+    }
+
+    #submit-button {
+        width: 40%;
+        align-self: center;
+    }
 }
