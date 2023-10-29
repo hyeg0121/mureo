@@ -6,6 +6,7 @@
 :root {
     --main-font: 'Pretendard-Regular';
     --primary: rgba(37, 168, 224, 1);
+    --primary-hover: rgb(32, 144, 193);
     --white: rgba(255, 255, 255, 1);
     --black: rgba(19, 19, 19, 1);
     --gray500: rgba(158, 158, 158, 1);
@@ -40,4 +41,21 @@ a {
 
 ::-webkit-scrollbar {
     display: none;
+  }
+
+  @media screen and (max-width: 1024px) {
+
+    .profile-container.mobile {
+        position: fixed; 
+        top: 56px;
+        margin: 0 20px;
+        display: flex;
+        flex-direction: row;
+    }
+
+    .profile-container.mobile > .profile-img-wrap,
+    .profile-container.mobile > .profile-img-wrap > .profile-img{
+        min-width: 100px;
+        min-height: 100px;
+    }
   }
