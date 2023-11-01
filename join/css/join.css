@@ -85,7 +85,7 @@ body {
     font-size: 1rem;
 }
 
-.login-button {
+.join-button {
     width: 25%;
     height: 50px;
     font-size: 1rem;
@@ -125,7 +125,7 @@ body {
         width: 100%;
     }
 
-    .login-button {
+    .join-button {
         width: calc(100% - 20vw * 2);
         font-size: 1rem;
     }
