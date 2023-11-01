@@ -7,6 +7,8 @@
     --main-font: 'Pretendard-Regular';
     --primary: rgba(37, 168, 224, 1);
     --primary-hover: rgb(32, 144, 193);
+    --login-color: #06617F;
+    --login-hover: #043f52;
     --white: rgba(255, 255, 255, 1);
     --black: rgba(19, 19, 19, 1);
     --gray500: rgba(158, 158, 158, 1);
