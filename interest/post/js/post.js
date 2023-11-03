@@ -1,0 +1,45 @@
+const userNo = 1;
+
+const titleField = document.getElementById('title-field');
+const dateField = document.getElementById('date-field');
+const reasonField = document.getElementById('reason-field');
+const colorField = document.getElementById('color-field');
+const submitButton = document.getElementById('submit-button');
+
+
+submitButton.onclick = () => {
+    const title = titleField.value;
+    const date = dateField.value;
+    const reason = reasonField.value;
+    const color = colorField.value;
+    
+    const request = {
+        user_no: userNo,
+        interest_name: title,
+        start_date: date,
+        end_date: "",
+        reason: reason,
+        color: color
+    };
+
+    axios.post('http://localhost:3000/interest', request)
+        .then(result => {
+            window.open('../setting/', '_top');
+        })
+        .catch(error => {
+            console.log('failure: ', error);
+        })
+    console.log('req:', request);
+};
+
+function getFormatDate() {
+    const currentDate = new Date();
+    const year = currentDate.getFullYear();
+    const month = (currentDate.getMonth() + 1).toString().padStart(2, "0");
+    const day = currentDate.getDate().toString().padStart(2, "0");
+    const formattedDate = `${year}-${month}-${day}`;
+
+    return formattedDate;
+}
+
+dateField.value = getFormatDate();
