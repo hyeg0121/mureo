@@ -146,6 +146,10 @@
     cursor: pointer;
 }
 
+.modal-content > * {
+    text-align: center;
+}
+
 @media screen and (max-width: 1024px) {
 
     #main {
@@ -159,5 +163,23 @@
 
     .modal-content {
         width: 60%;
+    }
+
+    .modal-content > * {
+        text-align: center;
+    }
+
+    .done-button,
+    .edit-button {
+        font-size: 0.7rem;
+    }
+}
+
+@media screen and (max-width: 542px){
+    
+    .interest-head {
+        flex-direction: column;
+        align-items: flex-start;
+        row-gap: 20px;
     }
 }
