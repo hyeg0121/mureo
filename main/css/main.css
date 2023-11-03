@@ -238,6 +238,11 @@
     border-radius: 50%;
 }
 
+.canvas-conteinr {
+    width: 60vw;
+    height: 40vh;
+}
+
 @media screen and (max-width: 1024px) {
 
     body {
