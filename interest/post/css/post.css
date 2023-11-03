@@ -30,8 +30,8 @@
 }
 
 .field-label {
-    width: 10%;
-    max-width: 120px;
+    width: 15%;
+    max-width: 150px;
     color: var(--gray500);
     font-size: 0.9rem;
 }
@@ -49,7 +49,7 @@ input[type='date'] {
     cursor: pointer;
 }
 
-#color {
+#color-fields {
     -webkit-appearance: none;
     -moz-appearance: none;
     appearance: none;
@@ -59,12 +59,12 @@ input[type='date'] {
     cursor: pointer;
 }
 
-#color::-webkit-color-swatch {
+#color-field::-webkit-color-swatch {
     border-radius: 5px;
     border: none;
 }
 
-#reason {
+#reason-field {
     height: 150px;
     resize: none;
 }

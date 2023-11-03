@@ -48,8 +48,9 @@
 }
 
 .field-label {
-    width: 10%;
-    max-width: 120px;
+    width: 15%;
+    max-width: 150px;
+    color: var(--gray500);
     font-size: 0.9rem;
 }
 
