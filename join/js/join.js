@@ -1,3 +1,5 @@
+const BASE_URL = "https://port-0-mureo-server-jvpb2mloi62iyf.sel5.cloudtype.app";
+
 const nameField = document.getElementsByClassName('name-field')[0];
 const idField = document.getElementsByClassName('id-field')[0];
 const pwField = document.getElementsByClassName('pw-field')[0];
@@ -30,7 +32,7 @@ joinButton.onclick = () => {
         "email": email
     }
 
-    axios.post('http://localhost:3000/register', req)
+    axios.post(`${BASE_URL}/register`, req)
         .then(res => {
             console.log(res);
             window.open('../', '_top');
