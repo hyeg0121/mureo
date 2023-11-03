@@ -63,7 +63,7 @@
     background: var(--white, #FFF);
 }
 
-#content {
+#content-field {
     height: 300px;
     resize: none;
 }
