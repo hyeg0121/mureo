@@ -79,7 +79,7 @@ function getUsersInterest() {
             // post-count 요소 생성
             const postCount = document.createElement('div');
             postCount.className = 'post-count';
-            postCount.textContent = `작성한 글 ${itemData.postCount}개`;
+            postCount.textContent = `작성한 글 0개`;
 
             // days-since 요소 생성
             const daysSince = document.createElement('div');
@@ -99,6 +99,10 @@ function getUsersInterest() {
 
             // interestItem을 interestList에 추가
             interestList.appendChild(interestItem);
+
+            interestItem.onclick = () => {
+                getInterestPosts(itemData.post_no);
+            };
         });
     })
     .catch(function (error) {
