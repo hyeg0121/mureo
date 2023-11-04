@@ -2,6 +2,14 @@
 // const BASE_URL = "https://port-0-mureo-server-jvpb2mloi62iyf.sel5.cloudtype.app";
 const currentDate = new Date();
 const interestSectionLabel = document.getElementsByClassName('label-text')[0];
+const interestDateDiv = document.getElementsByClassName('interest-date')[0];
+const interestTitleDiv = document.getElementsByClassName('interest-title')[0];
+const interestDesDiv = document.getElementsByClassName('interest-des')[0];
+const postsDiv = document.getElementsByClassName('posts')[0];
+
+let selectedInterestId = 0;
+
+setSelectedInterest();
 
 function getCookie(name) {
     var value = document.cookie.match('(^|;) ?' + name + '=([^;]*)(;|$)');
@@ -19,6 +27,23 @@ function getUserInfo() {
         console.log(err);
     });
 } 
+
+function setSelectedInterest() {
+    axios.get(`${BASE_URL}/interest/${userNo}`)
+        .then(response => {
+            const selectedInterest = response.data[0];
+            selectedInterestId = selectedInterest.interest_no;
+            interestDateDiv.innerHTML = selectedInterest.start_date + '~';
+            interestTitleDiv.innerHTML = selectedInterest.interest_name;
+            interestDesDiv.innerHTML = selectedInterest.reason;
+        
+            getInterestPosts();
+        })
+        .catch(err => {
+            alert('서버가 응답하지 않습니다.');
+            console.log(err);
+        })
+}
 
 function getUsersInterest() {
     axios.get(`${BASE_URL}/interest/${userNo}`) // 서버에서 데이터 가져오는 API 엔드포인트를 사용하세요
@@ -79,6 +104,34 @@ function getUsersInterest() {
     .catch(function (error) {
         console.log(error);
     });
+}
+
+function getInterestPosts() {
+    axios.get(`${BASE_URL}/interest/post/${selectedInterestId}`)
+        .then(response => {
+            const postList = response.data.result;
+            postList.forEach((post, index) => {
+                const postItem = document.createElement('div');
+                postItem.className = 'post-item';
+                
+                const postTitle = document.createElement('div');
+                postTitle.className = 'post-title';
+                postTitle.innerHTML = post.title;
+
+                const postContent = document.createElement('div');
+                postContent.className = 'post-content';
+                postContent.innerHTML = post.content;
+
+                postItem.appendChild(postTitle);
+                postItem.appendChild(postContent);
+
+                postsDiv.appendChild(postItem);
+            });
+        })
+        .catch(error => {
+            alert('서버가 응답하지 않습니다.');
+            console.log(error);
+        })
 }
 
 function calculateDaysBetweenDates(startDate, endDate) {
