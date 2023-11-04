@@ -1,4 +1,6 @@
-const userNo = 1;
+const userNo = getCookie('user_no');
+console.log(userNo);
+const BASE_URL = 'https://port-0-mureo-server-jvpb2mloi62iyf.sel5.cloudtype.app';
 
 const titleField = document.getElementById('title-field');
 const dateField = document.getElementById('date-field');
@@ -22,7 +24,7 @@ submitButton.onclick = () => {
         color: color
     };
 
-    axios.post('http://localhost:3000/interest', request)
+    axios.post(`${BASE_URL}/interest`, request)
         .then(result => {
             window.open('../setting/', '_top');
         })
@@ -43,3 +45,8 @@ function getFormatDate() {
 }
 
 dateField.value = getFormatDate();
+
+function getCookie(name) {
+    var value = document.cookie.match('(^|;) ?' + name + '=([^;]*)(;|$)');
+    return value? value[2] : null;
+}
