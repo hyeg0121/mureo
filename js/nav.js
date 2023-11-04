@@ -11,7 +11,6 @@ function getUserName() {
     axios.get(`${BASE_URL}/users/${userNo}`)
     .then(result => {
         const user = result.data[0];
-        console
         desktopNameLabel.innerHTML = user.user_name;
         // TODO: 팔로우 가져오기
         
