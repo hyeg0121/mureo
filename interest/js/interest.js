@@ -83,7 +83,6 @@ function getUsersInterest() {
             daysSince.className = 'days-since';
             daysSince.textContent = `좋아한 지 ${days}일`;
 
-            // terms 요소 생성
             const terms = document.createElement('div');
             terms.className = 'terms';
             terms.textContent = `${itemData.start_date} ~ ${itemData.end_date}` ;
@@ -98,7 +97,6 @@ function getUsersInterest() {
             interestList.appendChild(interestItem);
 
             interestItem.onclick = () => {
-                // TODO: 예전 글 다 없애고 다시 만들기
                 getInterestPosts(itemData.post_no);
                 selectedInterestId = itemData.post_no;
                 setSelectedInterest();
@@ -132,8 +130,13 @@ function getInterestPosts() {
                 postContent.className = 'post-content';
                 postContent.innerHTML = post.content;
 
+                const postDate = document.createElement('div');
+                postDate.className = 'post-date';
+                postDate.innerHTML = post.date;
+
                 postItem.appendChild(postTitle);
                 postItem.appendChild(postContent);
+                postItem.appendChild(postDate);
 
                 postsDiv.appendChild(postItem);
             });
