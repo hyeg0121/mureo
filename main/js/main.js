@@ -1,12 +1,14 @@
-
 const interestSectionLabel = document.getElementsByClassName('section-label')[0];
+const mobileNameLabel = document.getElementsByClassName('name-lable')[1];
+const mobileIdLabel = document.getElementsByClassName('id-label')[1];
 
 function getUserInfo() {
     axios.get(`${BASE_URL}/users/${userNo}`)
     .then(result => {
         const user = result.data[0];
         interestSectionLabel.innerHTML = `${user.user_name}의 관심사`;
-        
+        mobileNameLabel.innerHTML = user.user_name;
+        mobileIdLabel.innerHTML = user.user_id;
     })
     .catch(err => {
         console.log(err);
