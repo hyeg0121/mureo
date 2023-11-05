@@ -1,6 +1,3 @@
-// const BASE_URL = "https://port-0-mureo-server-jvpb2mloi62iyf.sel5.cloudtype.app";
-const currentDate = new Date();
-
 const infoButtonList = [...document.getElementsByClassName('info-button')];
 const infoDivList = [...document.getElementsByClassName('interest-info')];
 
@@ -104,20 +101,20 @@ function getUsersInterests() {
                 }
             });
 
-            interests.onclick = event => {
-                const target = event.target;
-                if (target.classList.contains('done-button')) {
-                    modal.style.display = 'block';
-                } else if (target.classList.contains('edit-button')) {
+            // interests.onclick = event => {
+            //     const target = event.target;
+            //     if (target.classList.contains('done-button')) {
+            //         modal.style.display = 'block';
+            //     } else if (target.classList.contains('edit-button')) {
                     
-                } else if (target.classList.contains('info-button')) {
-                    const infoDiv = interests.nextElementSibling;
-                    console.log(infoDiv);
-                    if (infoDiv) {
-                        infoDiv.classList.toggle('view');
-                    }
-                }
-            };
+            //     } else if (target.classList.contains('info-button')) {
+            //         const infoDiv = interests.nextElementSibling;
+            //         console.log(infoDiv);
+            //         if (infoDiv) {
+            //             infoDiv.classList.toggle('view');
+            //         }
+            //     }
+            // };
         })
         .catch(function (error) {
             console.log(error);
