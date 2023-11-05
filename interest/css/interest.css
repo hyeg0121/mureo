@@ -98,10 +98,15 @@ iconify-icon {
     line-height: normal;
     margin-top: auto;
 }
+
 .interest-post-container {
     display: flex;
     flex-direction: column;
     gap: 20px;
+}
+
+.interest-info-label {
+    margin: 20px 0 0 0;
 }
 
 .interest-date {
@@ -226,16 +231,22 @@ iconify-icon {
     }
 
     .posts {
-        height: 52vh;
+        background-color: aqua;
+        width: calc(100% - 20px * 2);
+        height: fit-content;
     }
     
     .interest-item {
-        width: 40vw;
+        width: 30vw;
+        min-width: none;
+        max-height: 200px;
+        height: 30vh; 
     }
 
     .add-post-container,
     .post-item {
         width: 100%;
+        max-width: none;
     }
 
 
