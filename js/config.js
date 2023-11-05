@@ -20,4 +20,18 @@ function calculateDaysBetweenDates(startDate, endDate) {
     const timeDifference = endDate - startDate;
     const daysDifference = Math.floor(timeDifference / millisecondsInDay);
     return daysDifference + 1;
-  }
+}
+
+function getCurrentDate() {
+    const today = new Date();
+
+    const year = today.getFullYear();
+    const month = String(today.getMonth() + 1).padStart(2, '0'); 
+    const day = String(today.getDate()).padStart(2, '0'); 
+
+    const formattedDate = `${year}-${month}-${day}`;
+    return formattedDate;
+}
+
+console.log(getCurrentDate())
+
