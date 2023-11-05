@@ -1,7 +1,21 @@
 const followingListDiv = document.getElementsByClassName('following-list')[0];
 const followerListDiv = document.getElementsByClassName('follower-list')[0];
+const searchField = document.getElementById('search-field');
+const searchIcon = document.getElementsByClassName('search-icon')[0];
+
 getFollowings();
 getFollowers();
+
+searchField.onkeydown = e => {
+    if (e.key === 'Enter') {
+        getSearchResult();
+    }
+}
+
+searchIcon.onclick = () => {
+    getSearchResult();
+};
+
 function getFollowings() {
     axios.get(`${BASE_URL}/followings/${userNo}`)
         .then(response => {
@@ -130,3 +144,14 @@ function getUsersRecentInterest(user_no) {
 
 }
 
+
+function getSearchResult() {
+    const keyword = searchField.value.trim();
+
+    if (keyword === '') {
+        alert('검색어를 입력하세요.');
+        return;
+    }
+
+    window.open(`../search/?keyword=${keyword}`, '_top');
+};
