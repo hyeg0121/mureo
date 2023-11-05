@@ -95,6 +95,11 @@ body {
     background-color: var(--login-color);
     color: var(--white);
     cursor: pointer;
+    transition: 0.2s;
+}
+
+.login-button:hover {
+    background-color: var(--login-hover);
 }
 
 .buttons > a {
