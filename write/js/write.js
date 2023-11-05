@@ -32,6 +32,7 @@ submitButton.onclick = () => {
     const request = {
         title: title,
         content: content,
+        date: getCurrentDate(),
         interest_no: interestNo
     }; 
 
