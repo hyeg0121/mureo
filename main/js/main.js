@@ -1,12 +1,5 @@
-const userNo = getCookie('user_no');
-const BASE_URL = "https://port-0-mureo-server-jvpb2mloi62iyf.sel5.cloudtype.app";
-const currentDate = new Date();
-const interestSectionLabel = document.getElementsByClassName('section-label')[0];
 
-function getCookie(name) {
-    var value = document.cookie.match('(^|;) ?' + name + '=([^;]*)(;|$)');
-    return value? value[2] : null;
-}
+const interestSectionLabel = document.getElementsByClassName('section-label')[0];
 
 function getUserInfo() {
     axios.get(`${BASE_URL}/users/${userNo}`)
@@ -80,13 +73,6 @@ function getUsersInterest() {
         console.log(error);
     });
 }
-
-function calculateDaysBetweenDates(startDate, endDate) {
-    const millisecondsInDay = 24 * 60 * 60 * 1000; // 1일의 밀리초
-    const timeDifference = endDate - startDate;
-    const daysDifference = Math.floor(timeDifference / millisecondsInDay);
-    return daysDifference + 1;
-  }
   
 getUserInfo();
 getUsersInterest();
