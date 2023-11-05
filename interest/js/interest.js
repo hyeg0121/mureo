@@ -1,6 +1,3 @@
-// const userNo = getCookie('user_no');
-// const BASE_URL = "https://port-0-mureo-server-jvpb2mloi62iyf.sel5.cloudtype.app";
-const currentDate = new Date();
 const interestSectionLabel = document.getElementsByClassName('label-text')[0];
 const interestDateDiv = document.getElementsByClassName('interest-date')[0];
 const interestTitleDiv = document.getElementsByClassName('interest-title')[0];
@@ -46,7 +43,7 @@ function setSelectedInterest() {
 }
 
 function getUsersInterest() {
-    axios.get(`${BASE_URL}/interest/${userNo}`) // 서버에서 데이터 가져오는 API 엔드포인트를 사용하세요
+    axios.get(`${BASE_URL}/interest/${userNo}`) 
     .then(function (response) {
         const interestList = document.querySelector('.interest-list');
 
@@ -101,7 +98,10 @@ function getUsersInterest() {
             interestList.appendChild(interestItem);
 
             interestItem.onclick = () => {
+                // TODO: 예전 글 다 없애고 다시 만들기
                 getInterestPosts(itemData.post_no);
+                selectedInterestId = itemData.post_no;
+                setSelectedInterest();
             };
         });
     })
@@ -110,9 +110,15 @@ function getUsersInterest() {
     });
 }
 
+// 글 목록 불러오기
 function getInterestPosts() {
     axios.get(`${BASE_URL}/interest/post/${selectedInterestId}`)
         .then(response => {
+            postsDiv.innerHTML = 
+            `<div class="add-post-container" onclick="window.open('/write', '_top')">
+                <iconify-icon icon="ion:add"></iconify-icon>
+                <span>새 글 추가하기</span>
+            </div>`
             const postList = response.data.result;
             postList.forEach((post, index) => {
                 const postItem = document.createElement('div');

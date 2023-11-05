@@ -1,7 +1,3 @@
-// const userNo = getCookie('user_no');
-console.log(userNo);
-// const BASE_URL = 'https://port-0-mureo-server-jvpb2mloi62iyf.sel5.cloudtype.app';
-
 const titleField = document.getElementById('title-field');
 const dateField = document.getElementById('date-field');
 const reasonField = document.getElementById('reason-field');
