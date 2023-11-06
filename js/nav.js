@@ -1,19 +1,51 @@
-const desktopNameLabel = document.getElementsByClassName('name-lable')[0];
+const nameLabels = [...document.getElementsByClassName('name-lable')]
+const idLabels = [...document.getElementsByClassName('id-label')];
+const followingValueDivs = [...document.getElementsByClassName('following-value')];
+const followerValueDivs = [...document.getElementsByClassName('follower-value')];
 
-function getUserName() {
+getUserDesktopProfile();
+getUserFollowingCount();
+getUserFollowerCount();
+
+function getUserDesktopProfile() {
     axios.get(`${BASE_URL}/users/${userNo}`)
     .then(result => {
-        const user = result.data[0];
-        desktopNameLabel.innerHTML = user.user_name;
-        // TODO: 팔로우 가져오기
-        
+        nameLabels.forEach(e => {
+            e.innerHTML = result.data[0].user_name;
+        });
+
+        idLabels.forEach(e => {
+            e.innerHTML = result.data[0].user_id;
+        })
     })
     .catch(err => {
         console.log(err);
     });
 } 
 
-getUserName();
+function getUserFollowingCount() {
+    axios.get(`${BASE_URL}/followings/${userNo}`)
+        .then(response => {
+            followingValueDivs.forEach(e => {
+                e.innerHTML = response.data.length;
+            });
+        })
+        .catch(error => {
+            console.log(error);
+        });
+}
+
+function getUserFollowerCount() {
+    axios.get(`${BASE_URL}/followers/${userNo}`)
+        .then(response => {
+            followerValueDivs.forEach(e => {
+                e.innerHTML = response.data.length;
+            });
+        })
+        .catch(error => {
+            console.log(error);
+        });
+}
 
 
 
