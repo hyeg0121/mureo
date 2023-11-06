@@ -1,14 +1,13 @@
 const interestSectionLabel = document.getElementsByClassName('section-label')[0];
-const mobileNameLabel = document.getElementsByClassName('name-lable')[1];
-const mobileIdLabel = document.getElementsByClassName('id-label')[1];
 
-function getUserInfo() {
+getUserInfoMobil();
+getUsersInterest();
+
+function getUserInfoMobil() {
     axios.get(`${BASE_URL}/users/${userNo}`)
     .then(result => {
         const user = result.data[0];
-        interestSectionLabel.innerHTML = `${user.user_name}의 관심사`;
-        mobileNameLabel.innerHTML = user.user_name;
-        mobileIdLabel.innerHTML = user.user_id;
+        interestSectionLabel.innerHTML = `${user.user_name}님의 관심사`;
     })
     .catch(err => {
         console.log(err);
@@ -46,11 +45,10 @@ function getUsersInterest() {
             titleLabel.textContent = itemData.interest_name;
             titles.appendChild(titleLabel);
 
-            // post-count 요소 생성
+              // post-count 요소 생성
             const postCount = document.createElement('div');
             postCount.className = 'post-count';
-            postCount.textContent = `작성한 글 ${itemData.postCount}개`;
-
+            postCount.textContent = `작성한 글 ${getInterestPostCount(itemData.interest_no)}개`;
             // days-since 요소 생성
             const daysSince = document.createElement('div');
             daysSince.className = 'days-since';
@@ -74,15 +72,25 @@ function getUsersInterest() {
     .catch(function (error) {
         console.log(error);
     });
+}   
+
+async function getInterestPostCount(interestId) {
+    let count =  await axios.get(`${BASE_URL}/interest/post/${interestId}`)
+        .then(response => {
+            console.log('getpostcount', response.data);
+            console.log(response.data.result.length)
+
+            return response.data.result.length
+        })
+        .catch(error => {
+            console.log(error);
+            
+        });
+
+    console.log('count', count);
+
+    return count;
 }
-  
-getUserInfo();
-getUsersInterest();
-
-
-
-console.log(userNo);
-
 
 
 
