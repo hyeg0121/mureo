@@ -4,21 +4,16 @@ const interestTitleDiv = document.getElementsByClassName('interest-title')[0];
 const interestDesDiv = document.getElementsByClassName('interest-des')[0];
 const postsDiv = document.getElementsByClassName('posts')[0];
 
-let selectedInterestId = 0;
+let selectedInterestId = -1;
+let selectedInterestIndex = 0;
 
 setSelectedInterest();
-
-function getCookie(name) {
-    var value = document.cookie.match('(^|;) ?' + name + '=([^;]*)(;|$)');
-    return value? value[2] : null;
-}
 
 function getUserInfo() {
     axios.get(`${BASE_URL}/users/${userNo}`)
     .then(result => {
         const user = result.data[0];
-        interestSectionLabel.innerHTML = `${user.user_name}의 관심사`;
-        
+        interestSectionLabel.innerHTML = `${user.user_name}님의 관심사`;
     })
     .catch(err => {
         console.log(err);
@@ -28,7 +23,14 @@ function getUserInfo() {
 function setSelectedInterest() {
     axios.get(`${BASE_URL}/interest/${userNo}`)
         .then(response => {
-            const selectedInterest = response.data[0];
+            let selectedInterest = response.data[0];
+            if (selectedInterestIndex == -1) {
+                selectedInterest = response.data[0];
+            } else {
+                selectedInterest = response.data[selectedInterestIndex];
+            }
+            console.log(response.data);
+            
             selectedInterestId = selectedInterest.interest_no;
             interestDateDiv.innerHTML = selectedInterest.start_date + '~';
             interestTitleDiv.innerHTML = selectedInterest.interest_name;
@@ -47,7 +49,7 @@ function getUsersInterest() {
     .then(function (response) {
         const interestList = document.querySelector('.interest-list');
 
-        response.data.forEach(function (itemData) {
+        response.data.forEach((itemData, index) => {
 
             const days = calculateDaysBetweenDates(new Date(itemData.start_date), currentDate);
 
@@ -76,7 +78,7 @@ function getUsersInterest() {
             // post-count 요소 생성
             const postCount = document.createElement('div');
             postCount.className = 'post-count';
-            postCount.textContent = `작성한 글 0개`;
+            postCount.textContent = `작성한 글 ${getInterestPostCount(itemData.interest_no)}개`;
 
             // days-since 요소 생성
             const daysSince = document.createElement('div');
@@ -85,7 +87,7 @@ function getUsersInterest() {
 
             const terms = document.createElement('div');
             terms.className = 'terms';
-            terms.textContent = `${itemData.start_date} ~ ${itemData.end_date}` ;
+            terms.textContent = `${itemData.start_date} ~ ${itemData.end_date}`;
 
             // 생성한 요소들을 interestItem에 추가
             interestItem.appendChild(titles);
@@ -97,8 +99,8 @@ function getUsersInterest() {
             interestList.appendChild(interestItem);
 
             interestItem.onclick = () => {
-                getInterestPosts(itemData.post_no);
-                selectedInterestId = itemData.post_no;
+                getInterestPosts();
+                selectedInterestIndex = index;
                 setSelectedInterest();
             };
         });
@@ -108,10 +110,29 @@ function getUsersInterest() {
     });
 }
 
+async function getInterestPostCount(interestId) {
+    let count =  await axios.get(`${BASE_URL}/interest/post/${interestId}`)
+        .then(response => {
+            console.log('getpostcount', response.data);
+            console.log(response.data.result.length)
+
+            return response.data.result.length
+        })
+        .catch(error => {
+            console.log(error);
+            
+        });
+
+    console.log('count', count);
+
+    return count;
+}
+
 // 글 목록 불러오기
 function getInterestPosts() {
     axios.get(`${BASE_URL}/interest/post/${selectedInterestId}`)
         .then(response => {
+            console.log(selectedInterestId);
             postsDiv.innerHTML = 
             `<div class="add-post-container" onclick="window.open('/write', '_top')">
                 <iconify-icon icon="ion:add"></iconify-icon>
@@ -153,6 +174,7 @@ function calculateDaysBetweenDates(startDate, endDate) {
     const daysDifference = Math.floor(timeDifference / millisecondsInDay);
     return daysDifference + 1;
   }
+
   
 getUserInfo();
 getUsersInterest();
