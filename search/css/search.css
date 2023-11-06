@@ -137,6 +137,10 @@
         overflow-x: hidden;
     }
 
+    .result-list {
+        width: 100%;
+    }
+
     .friend-item {
         width: 30vw;
         min-width: 240px;
