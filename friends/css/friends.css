@@ -106,12 +106,16 @@
 .friend-img {
     width: 3vw;
     height: 3vw;
+    min-width: 50px;
+    min-height: 50px;
 }
 
 .friend-img > img {
     object-fit: cover;
     width: 3vw;
     height: 3vw;
+    min-width: 50px;
+    min-height: 50px;
     border-radius: 50%;
 }
 
@@ -127,6 +131,39 @@
 
 .follow-button:hover {
     background-color: var(--gray500);
+}
+
+@media screen and (max-width: 1024px) {
+
+    #main {
+        top: 58px;
+        height: max-content;
+        left: 20px;
+        width: calc(100% - 20px * 2);
+        overflow-x: hidden;
+    }
+
+    .friend-item {
+        width: 30vw;
+        min-width: 240px;
+    }
+}
+
+@media screen and (max-width: 574px){
+    .friend-interest {
+        display: none;
+    }
+
+    .friend-item {
+        width: calc(100vw - 20px * 2);
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    .follow-button {
+        width: 40%;
+    }
 }
 
 
