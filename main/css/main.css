@@ -245,10 +245,6 @@
 
 @media screen and (max-width: 1024px) {
 
-    body {
-        border: none;
-    }
-
     #main {
         top: 200px;
         height: max-content;
