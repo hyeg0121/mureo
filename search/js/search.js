@@ -4,6 +4,7 @@ const searchField = document.getElementById('search-field');
 const searchIcon = document.getElementsByClassName('search-icon')[0];
 const resultListDiv = document.getElementsByClassName('result-list')[0];
 
+searchField.value = KEYWORD;
 showSearchResult();
 
 searchField.onkeydown = e => {
@@ -26,69 +27,87 @@ function getSearchResult() {
     window.open(`../search/?keyword=${keyword}`, '_top');
 }
 
-function showSearchResult() {
-    axios.get(`${BASE_URL}/users/search/${KEYWORD}`)
+async function showSearchResult() {
+    try {
+        const response = await axios.get(`${BASE_URL}/users/search/${KEYWORD}`);
+        const results = response.data.result;
+
+        if (results.length === 0) {
+            console.log('검색결과 없음');
+            return;
+        }
+
+        resultListDiv.innerHTML = ''
+
+        for (let result of results) {
+            const friendItem = document.createElement('div');
+            friendItem.className = 'friend-item';
+
+            // 프로필 컨테이너를 생성 
+            const friendProfileContainer = document.createElement('div');
+            friendProfileContainer.className = 'friend-profile-container';
+
+            // 프로필 이미지를 생성 
+            const friendImg = document.createElement('div');
+            friendImg.className = 'friend-img';
+            const img = document.createElement('img');
+            img.src = '../image/profile.png';
+            friendImg.appendChild(img);
+
+            // 프로필 레이블을 생성 
+            const profileLabels = document.createElement('div');
+            profileLabels.className = 'profile-labels';
+
+            const friendName = document.createElement('div');
+            friendName.className = 'friend-name';
+            friendName.textContent = result.user_name;
+
+            const friendId = document.createElement('div');
+            friendId.className = 'friend-id';
+            friendId.textContent = result.user_id;
+
+            profileLabels.appendChild(friendName);
+            profileLabels.appendChild(friendId);
+
+            // 프렌드 인터레스트를 생성 
+            const friendInterest = document.createElement('div');
+            friendInterest.className = 'friend-interest';
+            const friendRecentInterest = await getUsersRecentInterest(result.user_no);
+            friendInterest.textContent = friendRecentInterest;
+
+            // 팔로우 버튼을 생성 
+            const followButton = document.createElement('button');
+            followButton.className = 'follow-button';
+            followButton.textContent = '팔로우 취소';
+
+            // 요소를 조합 
+            friendProfileContainer.appendChild(friendImg);
+            friendProfileContainer.appendChild(profileLabels);
+
+            friendItem.appendChild(friendProfileContainer);
+            friendItem.appendChild(friendInterest);
+            friendItem.appendChild(followButton);
+
+            // 부모 요소에 추가.
+            resultListDiv.appendChild(friendItem);
+            const results = response.data.result;
+        }
+
+    } catch (exception) {
+        console.error(exception);
+    }
+}
+
+
+async function getUsersRecentInterest(no) {
+    let interest = await axios.get(`${BASE_URL}/interest/${no}`)
         .then(response => {
-            if (response.data.result.length == 0) {
-                console.log('검색결과 없음');
-                return;
-            } else {
-                resultListDiv.innerHTML = ''
-                const results = response.data.result;
-                results.forEach(result => {
-                    const friendItem = document.createElement('div');
-                    friendItem.className = 'friend-item';
-
-                    // 프로필 컨테이너를 생성 
-                    const friendProfileContainer = document.createElement('div');
-                    friendProfileContainer.className = 'friend-profile-container';
-
-                    // 프로필 이미지를 생성 
-                    const friendImg = document.createElement('div');
-                    friendImg.className = 'friend-img';
-                    const img = document.createElement('img');
-                    img.src = '../image/profile.png';
-                    friendImg.appendChild(img);
-
-                    // 프로필 레이블을 생성 
-                    const profileLabels = document.createElement('div');
-                    profileLabels.className = 'profile-labels';
-
-                    const friendName = document.createElement('div');
-                    friendName.className = 'friend-name';
-                    friendName.textContent = result.user_name;
-
-                    const friendId = document.createElement('div');
-                    friendId.className = 'friend-id';
-                    friendId.textContent = result.user_id;
-
-                    profileLabels.appendChild(friendName);
-                    profileLabels.appendChild(friendId);
-
-                    // 프렌드 인터레스트를 생성 
-                    const friendInterest = document.createElement('div');
-                    friendInterest.className = 'friend-interest';
-                    friendInterest.textContent = '폴아웃 🥊';
-
-                    // 팔로우 버튼을 생성 
-                    const followButton = document.createElement('button');
-                    followButton.className = 'follow-button';
-                    followButton.textContent = '팔로우 취소';
-
-                    // 요소를 조합 
-                    friendProfileContainer.appendChild(friendImg);
-                    friendProfileContainer.appendChild(profileLabels);
-
-                    friendItem.appendChild(friendProfileContainer);
-                    friendItem.appendChild(friendInterest);
-                    friendItem.appendChild(followButton);
-
-                    // 부모 요소에 추가.
-                    resultListDiv.appendChild(friendItem);
-                });
-            }
+            console.log(response.data[0]);
+            return response.data[0].interest_name;
         })
         .catch(error => {
-            console.log(error);
-        });
+            console.error(error);
+        })
+
+    return interest
 }
