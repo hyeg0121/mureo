@@ -33,7 +33,7 @@ function getFollowings() {
                 const friendImg = document.createElement('div');
                 friendImg.className = 'friend-img';
                 const img = document.createElement('img');
-                img.src = '../image/profile1.jpeg';
+                img.src = '../image/profile.png';
                 friendImg.appendChild(img);
 
                 // 프로필 레이블을 생성 
@@ -95,7 +95,7 @@ function getFollowers() {
             const friendImg = document.createElement('div');
             friendImg.className = 'friend-img';
             const img = document.createElement('img');
-            img.src = '../image/profile1.jpeg';
+            img.src = '../image/profile.png';
             friendImg.appendChild(img);
 
             // 프로필 레이블을 생성 
