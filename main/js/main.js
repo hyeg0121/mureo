@@ -1,5 +1,7 @@
 const interestSectionLabel = document.getElementsByClassName('section-label')[0];
-
+let interestLabels = [];
+let interestPostCounts = [];
+let interestColors = [];
 getUserInfoMobil();
 getUsersInterest();
 
@@ -35,18 +37,21 @@ async function getUsersInterest() {
 
             // color 요소 스타일, 내용 설정
             color.style.backgroundColor = interest[i].color;
+            interestColors.push(interest[i].color);
             titles.appendChild(color);
 
             // title-label 요소 생성
             const titleLabel = document.createElement('div');
             titleLabel.className = 'title-label';
             titleLabel.textContent = interest[i].interest_name;
+            interestLabels.push(interest[i].interest_name);
             titles.appendChild(titleLabel);
 
             // post-count 요소 생성
             const postCount = document.createElement('div');
             postCount.className = 'post-count';
             const postCountValue = await getInterestPostCount(interest[i].interest_no);
+            interestPostCounts.push(parseInt(postCountValue));
             postCount.textContent = `작성한 글 ${postCountValue}개`;
 
             // days-since 요소 생성
