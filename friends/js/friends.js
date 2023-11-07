@@ -67,10 +67,10 @@ async function getUsers(kind, listDiv) {
             if (isFollow) {
                 followButton.onclick = () => {
                     console.log(userNo, result.user_no)
-                    axios.delete(`${BASE_URL}/users/unfollow`, {
+                    axios.delete(`${BASE_URL}/users/unfollow`, {"data" : {
                         "follower_id": userNo,
                         "following_id": result.user_no
-                    })
+                    }})
                         .then(res => {
                             console.log(res.data);
                         })
@@ -127,7 +127,6 @@ function getSearchResult() {
 async function getUsersRecentInterest(no) {
     let interest = await axios.get(`${BASE_URL}/interest/${no}`)
         .then(response => {
-            // console.log(response.data[0]);
             return response.data[0].interest_name;
         })
         .catch(error => {

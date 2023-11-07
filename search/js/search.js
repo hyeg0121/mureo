@@ -83,12 +83,12 @@ async function showSearchResult() {
             const isFollow = await isFollowing(userNo, result.user_no);
             if (isFollow) {
                 followButton.onclick = () => {
-                    axios.delete(`${BASE_URL}/users/unfollow`, {
+                    axios.delete(`${BASE_URL}/users/unfollow`, {"data" : {
                         "follower_id": userNo,
                         "following_id": result.user_no
-                    })
+                    }})
                         .then(res => {
-                            console.log(res);
+                            console.log(res.data);
                         })
                         .catch(err => {
                             console.error(err);
