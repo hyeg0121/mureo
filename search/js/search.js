@@ -80,6 +80,39 @@ async function showSearchResult() {
             followButton.className = 'follow-button';
             followButton.textContent = '팔로우 취소';
 
+            const isFollow = await isFollowing(userNo, result.user_no);
+            if (isFollow) {
+                followButton.onclick = () => {
+                    axios.delete(`${BASE_URL}/users/unfollow`, {
+                        "follower_id": userNo,
+                        "following_id": result.user_no
+                    })
+                        .then(res => {
+                            console.log(res);
+                        })
+                        .catch(err => {
+                            console.error(err);
+                        });
+                    location.reload();
+                }
+            } else {
+                followButton.innerHTML = '팔로우';
+                followButton.classList.add('unfollow');
+                followButton.onclick = () => {
+                    axios.post(`${BASE_URL}/users/follow`, {
+                        "follower_id": userNo,
+                        "following_id": result.user_no
+                    })
+                        .then(res => {
+                            console.log(res);
+                        })
+                        .catch(err => {
+                            console.error(err);
+                        })
+                    location.reload();
+                }
+            }
+
             // 요소를 조합 
             friendProfileContainer.appendChild(friendImg);
             friendProfileContainer.appendChild(profileLabels);
@@ -90,7 +123,6 @@ async function showSearchResult() {
 
             // 부모 요소에 추가.
             resultListDiv.appendChild(friendItem);
-            const results = response.data.result;
         }
 
     } catch (exception) {
@@ -110,4 +142,22 @@ async function getUsersRecentInterest(no) {
         })
 
     return interest
+}
+
+async function isFollowing(follower_no, following_no) {
+    const request = {
+        "follower_id": follower_no,
+        "following_id": following_no
+    }
+    const flag = await axios.post(`${BASE_URL}/isFollowing`, request)
+        .then(response => {
+            console.log(response.data.result);
+            return response.data.result;
+        })
+        .catch(error => {
+            console.error(error)
+            return null;
+        });
+
+    return flag;
 }
