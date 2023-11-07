@@ -168,7 +168,7 @@
         height: 56px;
         flex-direction: row;
         box-shadow: none;
-        background-color: none;
+        background-color: rgba(0, 0, 0, 0);
     }
 
     .nav-list {
