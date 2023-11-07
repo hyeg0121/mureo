@@ -1,45 +1,8 @@
-@font-face {
-    font-family: 'Pretendard-Regular';
-    src: url('https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Bold.woff') format('woff');
-    font-weight: 700;
-}
-
-@font-face {
-    font-family: 'Pretendard-Regular';
-    src: url('https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Medium.woff') format('woff');
-    font-weight: 500;
-}
-
-@font-face {
-    font-family: 'Pretendard-Regular';
-    src: url('https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff') format('woff');
-    font-weight: 400;
-}
-
-@font-face {
-    font-family: 'Pretendard-Regular';
-    src: url('https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Light.woff') format('woff');
-    font-weight: 300;
-}
-
-:root {
-    --main-font: 'Pretendard-Regular';
-    --primary: rgba(37, 168, 224, 1);
-    --white: rgba(255, 255, 255, 1);
-    --black: rgba(19, 19, 19, 1);
-    --gray500: rgba(158, 158, 158, 1);
-    --gray700: rgba(97, 97, 97, 1);
-    --dusan: rgba(69, 99, 158, 1);
-    --woman: rgba(219, 104, 132, 1);
-    --yang: rgba(255, 229, 138, 1);
-    --mamrgin-top: 6vh;
-}
-
 #main {
     position: absolute;
     top: 6vh;
     left: calc(300px + 4vw);
-    width: 80%;
+    width: fit-content;
     height: 100%;
     display: flex;
     flex-direction: column;
@@ -50,7 +13,7 @@
 .main-section {
     margin: 0 0 0 0;
     height: fit-content;
-    width: 100%;
+    width: fit-content;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
