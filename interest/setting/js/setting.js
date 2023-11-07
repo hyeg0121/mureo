@@ -5,6 +5,8 @@ const doneButtonList = [...document.getElementsByClassName('done-button')];
 const modal = document.getElementById('done-interest-modal');
 const closeModalBtn = document.getElementById('close-modal-button');
 
+let deleteInterestNo = 0;
+
 infoButtonList.forEach((element, index) => {
     element.onclick = () => {
         if (infoDivList[index]) {
@@ -19,23 +21,24 @@ doneButtonList.forEach((element, index) => {
     };
 });
 
-closeModalBtn.addEventListener("click", function() {
-    modal.style.display = "none";
-});
+closeModalBtn.onclick = () => {
+    modal.style.display = 'none';
+    stopLiking(deleteInterestNo);
+}
 
-window.addEventListener("click", function(event) {
+window.addEventListener("click", function (event) {
     if (event.target === modal) {
         modal.style.display = "none";
     }
 });
 
 function getUsersInterests() {
-    
+
     axios.get(`${BASE_URL}/interest/${userNo}`)
         .then(function (response) {
             const data = response.data;
             const interests = document.querySelector('.interests');
-            
+
             data.forEach((item, index) => {
                 const days = calculateDaysBetweenDates(new Date(item.start_date), currentDate);
 
@@ -69,6 +72,15 @@ function getUsersInterests() {
                 const iconifyIcon = document.createElement('iconify-icon');
                 iconifyIcon.setAttribute('icon', 'ph:info');
 
+
+                if (item.end_date !== "") {
+                    interestContainer.style.backgroundColor = '#F4F4F4';
+                    interestContainer.style.borderColor = '#fff';
+                    doneButton.style.display = 'none';
+                    editButton.style.display = 'none';
+                    infoButton.style.backgroundColor = '#F4F4F4';
+                }
+
                 infoButton.appendChild(iconifyIcon);
 
                 interestSettings.appendChild(doneButton);
@@ -82,15 +94,16 @@ function getUsersInterests() {
                     <div class="days-since">좋아한 지 ${days}일</div>
                     <div class="terms">${item.start_date} ~ ${item.end_date}</div>
                 `;
-                
+
                 interestHead.appendChild(interestTitle);
                 interestHead.appendChild(interestSettings)
                 interestContainer.appendChild(interestHead);
                 interestContainer.appendChild(interestInfo);
-                
+
                 interests.appendChild(interestContainer);
 
                 doneButton.onclick = () => {
+                    deleteInterestNo = item.interest_no;
                     modal.style.display = 'block';
                 }
 
@@ -100,21 +113,6 @@ function getUsersInterests() {
                     }
                 }
             });
-
-            // interests.onclick = event => {
-            //     const target = event.target;
-            //     if (target.classList.contains('done-button')) {
-            //         modal.style.display = 'block';
-            //     } else if (target.classList.contains('edit-button')) {
-                    
-            //     } else if (target.classList.contains('info-button')) {
-            //         const infoDiv = interests.nextElementSibling;
-            //         console.log(infoDiv);
-            //         if (infoDiv) {
-            //             infoDiv.classList.toggle('view');
-            //         }
-            //     }
-            // };
         })
         .catch(function (error) {
             console.log(error);
@@ -140,6 +138,22 @@ function calculateDaysBetweenDates(startDate, endDate) {
     const timeDifference = endDate - startDate;
     const daysDifference = Math.floor(timeDifference / millisecondsInDay);
     return daysDifference + 1;
-  }
+}
+
+function stopLiking(interestNo) {
+    const request = {
+        "end_date": getCurrentDate()
+    };
+
+    console.log(interestNo, request);
+
+    axios.patch(`${BASE_URL}/stop/${interestNo}`, request)
+        .then(response => {
+            console.log('result', response.data.result);
+        })
+        .catch(error => {
+            console.log(error);
+        });
+}
 
 getUsersInterests();
