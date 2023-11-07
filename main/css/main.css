@@ -164,6 +164,10 @@
         font-size: 1rem;
     }
 
+    .follow-container {
+        gap: 20px;
+    }
+
     .interest-list {
         overflow-x: scroll;
         height: 220px;
