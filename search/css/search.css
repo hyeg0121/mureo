@@ -134,11 +134,11 @@
         height: max-content;
         left: 20px;
         width: calc(100% - 20px * 2);
-        overflow-x: hidden;
     }
 
     .result-list {
         width: 100%;
+        overflow-x: scroll;
     }
 
     .friend-item {
@@ -175,4 +175,12 @@
     .follow-button {
         width: 30%;
     }
+}
+
+.follow-button.unfollow {
+    background-color: var(--primary);
+}
+
+.follow-button.unfollow:hover {
+    background-color: var(--primary-hover);
 }
