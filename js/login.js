@@ -1,5 +1,3 @@
-const BASE_URL = "https://port-0-mureo-server-jvpb2mloi62iyf.sel5.cloudtype.app";
-
 const idField = document.getElementsByClassName('id-field')[0];
 const pwField = document.getElementsByClassName('pw-field')[0];
 const loginButton = document.getElementsByClassName('login-button')[0];
@@ -18,7 +16,7 @@ loginButton.onclick = () => {
         "password": pw
     };
 
-    axios.post('https://port-0-mureo-server-jvpb2mloi62iyf.sel5.cloudtype.app/login', req)
+    axios.post(`${BASE_URL}/login`, req)
         .then(res => {
             if (res.data.result === '로그인 실패 (비번 틀림)') {
                 alert('비밀번호가 알맞지 않습니다.');
