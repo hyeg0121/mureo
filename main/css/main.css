@@ -2,18 +2,19 @@
     position: absolute;
     top: 6vh;
     left: calc(300px + 4vw);
-    width: fit-content;
+    width: calc(100% - 20%);
     height: 100%;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
     gap: 7vh;
+    overflow: hidden;
 }
 
 .main-section {
     margin: 0 0 0 0;
     height: fit-content;
-    width: fit-content;
+    width: 80%;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
@@ -25,11 +26,12 @@
 }
 
 .interest-list {
-    width: 100%;
-    height: 17vh;
+    width: 110%;
+    height: 24vh;
     display: flex;
     gap: 40px;
     border-radius: 5px;
+    overflow-x: scroll;
 }
 
 .interest-item {
@@ -39,7 +41,7 @@
     height: 100%;
     max-width: 360px;
     max-height: 180px;
-    min-width: 240px;
+    min-width: 300px;
     min-height: 120px;
     padding: 15px;
     display: flex;
@@ -109,10 +111,13 @@
 
     .profile-container.mobile {
         position: fixed; 
+        width: 100%;
         top: 56px;
         margin: 0 20px;
         display: flex;
         flex-direction: row;
+        z-index: 1;
+        background-color: var(--white);
     }
 
     .profile-container.mobile > .profile-img-wrap,
@@ -140,11 +145,13 @@
         width: 100%;
     }
 
-    .interest-item, 
-    .post-item {
-        width: 40vw;
+    .interest-item {
+        min-width: none;
+        max-height: 200px;
+        width: 10vw;
+        height: 30vh; 
     }
-
+    
     .canvas-containter{
         width: 100vw;
         height: 35vh;
@@ -159,12 +166,23 @@
         height: max-content;
         left: 20px;
         width: calc(100% - 20px * 2);
-        overflow-x: hidden;
+        overflow-x: hidden; 
+    }
+
+    .interest-list {
+        width: 90vw;
+    }
+
+    .interest-item {
+        max-width: none;
+        min-width: none;
+        width: 15vw;
     }
 
     .canvas-containter{
-        width: 100vw;
-        height: 40vh;
+        margin: 0 0 0 5vw;
+        width: 85vw;
+        height: 35vh;
     }
     
 }
