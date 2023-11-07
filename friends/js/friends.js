@@ -63,6 +63,40 @@ async function getFollowings() {
             followButton.className = 'follow-button';
             followButton.textContent = '팔로우 취소';
 
+            const isFollow = await isFollowing(userNo, following.user_no);
+            if (isFollow) {
+                followButton.onclick = () => {
+                    console.log(userNo, following.user_no)
+                    axios.delete(`${BASE_URL}/users/unfollow`, {
+                        "follower_id": userNo,
+                        "following_id": following.user_no
+                    })
+                        .then(res => {
+                            console.log(res.data);
+                        })
+                        .catch(err => {
+                            console.error(err);
+                        });
+                    location.reload();
+                }
+            } else {
+                followButton.innerHTML = '팔로우';
+                followButton.classList.add('unfollow')
+                followButton.onclick = () => {
+                    axios.post(`${BASE_URL}/users/follow`, {
+                        "follower_id": userNo,
+                        "following_id": following.user_no
+                    })
+                        .then(res => {
+                            console.log(res);
+                        })
+                        .catch(err => {
+                            console.error(err);
+                        });
+                    location.reload();
+                }
+            }
+
             // 요소를 조합 
             friendProfileContainer.appendChild(friendImg);
             friendProfileContainer.appendChild(profileLabels);
@@ -84,7 +118,6 @@ async function getFollowers() {
         const response = await axios.get(`${BASE_URL}/followers/${userNo}`);
         const followers = response.data;
         for (let follower of followers) {
-            const followers = response.data;
 
             const friendItem = document.createElement('div');
             friendItem.className = 'friend-item';
@@ -135,16 +168,45 @@ async function getFollowers() {
             friendItem.appendChild(friendInterest);
             friendItem.appendChild(followButton);
 
+            const isFollow = await isFollowing(userNo, follower.user_no);
+            if (isFollow) {
+                followButton.onclick = () => {
+                    axios.delete(`${BASE_URL}/users/unfollow`, {
+                        "follower_id": userNo,
+                        "following_id": follower.user_no
+                    })
+                        .then(res => {
+                            console.log(res);
+                        })
+                        .catch(err => {
+                            console.error(err);
+                        });
+                    location.reload();
+                }
+            } else {
+                followButton.innerHTML = '팔로우';
+                followButton.classList.add('unfollow')
+                followButton.onclick = () => {
+                    axios.post(`${BASE_URL}/users/follow`, {
+                        "follower_id": userNo,
+                        "following_id": follower.user_no
+                    })
+                        .then(res => {
+                            console.log(res);
+                        })
+                        .catch(err => {
+                            console.error(err);
+                        });
+                    location.reload();
+                }
+            }
+
             // 부모 요소에 추가.
             followerListDiv.appendChild(friendItem);
         }
     } catch (exception) {
         console.error(exception);
     }
-}
-
-function getUsersRecentInterest(user_no) {
-
 }
 
 
@@ -162,7 +224,7 @@ function getSearchResult() {
 async function getUsersRecentInterest(no) {
     let interest = await axios.get(`${BASE_URL}/interest/${no}`)
         .then(response => {
-            console.log(response.data[0]);
+            // console.log(response.data[0]);
             return response.data[0].interest_name;
         })
         .catch(error => {
@@ -170,4 +232,22 @@ async function getUsersRecentInterest(no) {
         })
 
     return interest
+}
+
+async function isFollowing(follower_no, following_no) {
+    const request = {
+        "follower_id": follower_no,
+        "following_id": following_no
+    }
+    const flag = await axios.post(`${BASE_URL}/isFollowing`, request)
+        .then(response => {
+            console.log(response.data.result);
+            return response.data.result;
+        })
+        .catch(error => {
+            console.error(error)
+            return null;
+        });
+
+    return flag;
 }
