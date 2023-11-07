@@ -233,7 +233,7 @@
 
 .friend-img > img {
     object-fit: cover;
-    width: 3vw;
+    width: 3vw; 
     height: 3vw;
     border-radius: 50%;
 }
@@ -267,9 +267,29 @@
         min-height: 100px;
     }   
 
+    .profile-container.mobile > .name-and-id {
+        align-items: flex-start;
+        gap: 5px;
+        font-size: 1rem;
+    }
+
+    .interest-list {
+        overflow-x: scroll;
+        height: 220px;
+    }
+
+    .interest-post-container {
+        width: 100%;
+    }
+
     .post-list {
         width: max-content;
         overflow-x: scroll;
+    }
+
+    .posts {
+        width: 100%;
+        height: fit-content;
     }
 
     .follow-container {
