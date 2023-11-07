@@ -3,7 +3,6 @@ let interestLabels = [];
 let interestPostCounts = [];
 let interestColors = [];
 getUserInfoMobil();
-getUsersInterest();
 
 function getUserInfoMobil() {
     axios.get(`${BASE_URL}/users/${userNo}`)
