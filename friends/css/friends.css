@@ -8,7 +8,6 @@
     flex-direction: column;
     justify-content: flex-start;
     gap: 7vh;
-    overflow-x: hidden;
 }
 
 .main-label {
@@ -50,7 +49,6 @@
     flex-direction: column;
     align-items: flex-start;
     gap: 20px;
-    overflow-x: hidden;
 }
 
 .section-label {
