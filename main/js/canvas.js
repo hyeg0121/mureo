@@ -11,7 +11,7 @@ function resizeCanvas() {
 
     canvas.width = containerWidth;
     canvas.height = containerHeight;
-
+    drawChart();
 }
 
 console.log(interestColors, interestLabels, interestPostCounts);
@@ -30,6 +30,11 @@ function rgbToRgba(rgbCode, alpha) {
 }
 
 async function drawChart() {
+
+    interestColors = [];
+    interestLabels = [];
+    interestPostCounts = [];
+
     await getUsersInterest();
 
     const myChart = new Chart(ctx, {
@@ -70,9 +75,6 @@ async function drawChart() {
     });
 
 }
-
-drawChart();
-
 
 function rgbToRgba(rgbCodes, alpha) {
     let colors = [];
