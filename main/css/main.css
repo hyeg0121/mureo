@@ -173,20 +173,6 @@
         width: 100%;
     }
 
-    .post-list {
-        width: max-content;
-        overflow-x: scroll;
-    }
-
-    .posts {
-        width: 100%;
-        height: fit-content;
-    }
-
-    .follow-container {
-        gap: 20px;
-    }
-
     .interest-item, 
     .post-item {
         width: 40vw;
@@ -194,7 +180,7 @@
 
     .canvas-containter{
         width: 100vw;
-        height: 30vh;
+        height: 35vh;
     }
     
 }
@@ -212,7 +198,6 @@
     .canvas-containter{
         width: 100vw;
         height: 40vh;
-        background-color: antiquewhite;
     }
     
 }
