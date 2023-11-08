@@ -44,7 +44,7 @@ async function drawChart() {
             type: 'line',
             datasets: [{
                 label: '관심사',
-                data: interestPostCounts,
+                data: interestPostCounts.reverse(),
                 backgroundColor: rgbToRgba(interestColors, 1),
                 borderColor: ['rgba(37, 168, 224, 1)'],
                 borderWidth: 5
