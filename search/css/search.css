@@ -148,13 +148,17 @@
 }
 
 @media screen and (max-width: 572px){
+    #main {
+        overflow-y: scroll;
+        height: fit-content;
+    }
+
     .friend-interest {
         display: none;
     }
 
     .search-result-container {
-        height: 35vh;
-        overflow-y: hidden;
+        height: fit-content;
     }
 
     .result-list {
@@ -163,6 +167,7 @@
         width: 100%;
         overflow-y: scroll;
         gap: 10px;
+        overflow-y: scroll;
     }
 
     .friend-item {
