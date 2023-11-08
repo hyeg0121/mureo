@@ -147,7 +147,7 @@
     }
 }
 
-@media screen and (max-width: 574px){
+@media screen and (max-width: 572px){
     .friend-interest {
         display: none;
     }
@@ -159,7 +159,7 @@
 
     .result-list {
         flex-direction: column;
-        height: 35vh;
+        height: 70vh;
         width: 100%;
         overflow-y: scroll;
         gap: 10px;
