@@ -19,6 +19,7 @@ async function getUsersInterest() {
     try {
         const response = await axios.get(`${BASE_URL}/interest/${userNo}`);
         const interestList = document.querySelector('.interest-list');
+        interestList.innerHTML = '';
         const interest = response.data;
         for (const i in interest) {
             const days = calculateDaysBetweenDates(new Date(interest[i].start_date), currentDate);
