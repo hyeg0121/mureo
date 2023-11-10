@@ -73,7 +73,11 @@ async function showSearchResult() {
             const friendInterest = document.createElement('div');
             friendInterest.className = 'friend-interest';
             const friendRecentInterest = await getUsersRecentInterest(result.user_no);
-            friendInterest.textContent = friendRecentInterest;
+
+            if (friendRecentInterest) 
+                friendInterest.textContent = friendRecentInterest;
+            else 
+                friendInterest.textContent = '아직 관심사가 없습니다.';
 
             // 팔로우 버튼을 생성 
             const followButton = document.createElement('button');
@@ -138,7 +142,7 @@ async function getUsersRecentInterest(no) {
             return response.data[0].interest_name;
         })
         .catch(error => {
-            console.error(error);
+            return undefined
         })
 
     return interest
