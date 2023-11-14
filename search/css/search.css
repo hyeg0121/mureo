@@ -8,6 +8,7 @@
     flex-direction: column;
     justify-content: flex-start;
     gap: 7vh;
+    overflow-x: hidden;
 }
 
 .main-label {
@@ -32,7 +33,7 @@
 .search-result-container {
     display: flex;
     flex-direction: column;
-    gap: 20px;
+    gap: 20px;  
 }
 
 .search-icon {
@@ -47,13 +48,14 @@
 }
 
 .result-list {
-    display: grid;
-    grid-template-columns: auto auto auto; /* 3개의 행 */
-    grid-template-rows: repeat(auto-fill, minmax(200px, 1fr)); /* 열은 최소 200px이상이며, 동적으로 늘어남 */
-    width: 60vw;
-    height: 60vh;
-    gap: 70px;
-    overflow-x: scroll;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    width: fit-content;
+    height: 50vh;
+    gap: 50px;
+    padding: 10px 0;
+    overflow: scroll;
 }
 
 /* 검색결과 */
@@ -168,11 +170,9 @@
 
     .result-list {
         flex-direction: column;
-        height: 70vh;
-        width: 100%;
+        height: fit-content;
         overflow-y: scroll;
         gap: 10px;
-        overflow-y: scroll;
     }
 
     .friend-item {

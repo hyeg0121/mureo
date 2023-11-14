@@ -1,6 +1,6 @@
 const userNo = getCookie('user_no');
 
-const BASE_URL = "https://port-0-mureo-server-jvpb2mloi62iyf.sel5.cloudtype.app";
+const BASE_URL = "http://localhost:3000";
 
 const currentDate = new Date();
 

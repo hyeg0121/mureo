@@ -8,6 +8,7 @@
     flex-direction: column;
     justify-content: flex-start;
     gap: 7vh;
+    overflow-x: hidden;
 }
 
 .main-label {
@@ -49,6 +50,7 @@
     flex-direction: column;
     align-items: flex-start;
     gap: 20px;
+    overflow-x: scroll;
 }
 
 .section-label {
@@ -57,14 +59,16 @@
 
 .friend-list {
     display: flex;
-    align-items: center;
+    flex-direction: row;
+    width: fit-content;
     height: 30vh;
-    gap: 40px;
-    overflow-x: scroll;
+    gap: 50px;
+    padding: 10px 0;
 }
 
 .friend-item {
-    width: 20vw;
+    width: 18vw;
+    height: fit-content;
     display: flex;
     flex-direction: column;
     align-items: flex-start;

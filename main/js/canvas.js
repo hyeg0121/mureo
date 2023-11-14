@@ -29,13 +29,17 @@ function rgbToRgba(rgbCode, alpha) {
     return `rgba(${r}, ${g}, ${b}, ${alpha})`;
 }
 
-async function drawChart() {
+init();
 
+async function init() {
+    await getUsersInterest();
+    await drawChart();
+}
+
+async function drawChart() {
     interestColors = [];
     interestLabels = [];
     interestPostCounts = [];
-
-    await getUsersInterest();
 
     const myChart = new Chart(ctx, {
         type: 'line',

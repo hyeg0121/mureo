@@ -17,6 +17,8 @@ searchIcon.onclick = () => {
 };
 
 async function getUsers(kind, listDiv) {
+
+    listDiv.innerHTML = '';
     try {
         const response = await axios.get(`${BASE_URL}/${kind}/${userNo}`);
         const results = response.data;
@@ -106,7 +108,6 @@ async function getUsers(kind, listDiv) {
             friendItem.appendChild(followButton);
 
             // 부모 요소에 추가.
-            listDiv.innerHTML = '';
             listDiv.appendChild(friendItem);
         }
     } catch (exception) {
