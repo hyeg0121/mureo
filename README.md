@@ -1,5 +1,5 @@
-# 🐟 무러 
-물고기가 다양한 바다로 헤엄치는 것처럼, 계속 이동하는 나의 관심사들을 기록하고 공유하는 웹 서비스
+ # 🐟 무러 
+> 물고기가 다양한 바다로 헤엄치는 것처럼, 계속 이동하는 나의 관심사들을 기록하고 공유하는 웹 서비스
 
 ### 서비스 기능
 - 관심사 기록, 등록
@@ -15,17 +15,20 @@
   - 친구가 가장 최근에 작성한 관심사를 보여줍니다.
   - ~친구의 관심사 카테고리 게시판에 글을 작성할 수 있습니다. (미구현)~
  
-### 백엔드 리포지토리
-- [백엔드 리포지토리 바로가기](https://github.com/seoyoung1276/mureo_server)
+### 프론트엔드 리포지토리
+- [프론트엔드 리포지토리 바로가기](https://github.com/hyeg0121/mureo-frontend)
 ### 프로토타입
 - [프로토타입 보러가기](https://www.figma.com/file/RMXOfZl0ttHRBaRxWoG9FB/%EB%AC%B4%EB%9F%AC?type=design&node-id=203%3A651&mode=design&t=kqF44PorQFA6UrpH-1)
 
 <br>
 
 # 🎬 Getting Started
-1. [mureo.netlify.app/](https://mureo.netlify.app/) 에 접속하여 회원가입, 로그인 후 서비스를 이용한다
+`현재 서버 배포 중단 상태입니다. 죄송합니다. 🥺`
+1. ~[mureo.netlify.app/](https://mureo.netlify.app/)~ 에 접속하여 회원가입, 로그인 후 서비스를 이용한다
    - 크롬 브라우저에서 실행해주세요 😣
-3. 해당 리포지토리를 클론하고, 루트에 있는 index.html을 실행시킨다
+3. ~해당 리포지토리를 클론하고, 루트에 있는 index.html을 실행시킨다~
+
+
 <br>
 
 # 📚 Languages & Frameworks
@@ -45,6 +48,6 @@
 
 <br>
 
-# 👶🏻 Project Members)
-- [이서영](https://github.com/seoyoung1276)
-- [황혜경](https://github.com/hyeg0121)
+# 👶🏻 Project Members
+- [이서영](https://github.com/seoyoung1276) : 익스프레스 서버 개발
+- [황혜경](https://github.com/hyeg0121) : 프론트엔드 개발
